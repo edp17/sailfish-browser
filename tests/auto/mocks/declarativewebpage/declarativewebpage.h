@@ -61,6 +61,9 @@ public:
     MOCK_METHOD1(focusInEvent, void(QFocusEvent *));
     MOCK_METHOD1(focusOutEvent, void(QFocusEvent *));
     MOCK_METHOD1(timerEvent, void(QTimerEvent *));
+    MOCK_METHOD2(recvMousePress, void(int, int));
+    MOCK_METHOD2(recvMouseMove, void(int, int));
+    MOCK_METHOD2(recvMouseRelease, void(int, int));
     MOCK_METHOD1(updateContentOrientation, void(Qt::ScreenOrientation));
     MOCK_CONST_METHOD0(contentHeight, qreal());
     MOCK_CONST_METHOD0(resolution, float());

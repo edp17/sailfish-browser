@@ -765,6 +765,33 @@ void DeclarativeWebContainer::timerEvent(QTimerEvent *event)
     }
 }
 
+void DeclarativeWebContainer::mousePressEvent(QMouseEvent *event)
+{
+    if (m_webPage && m_enabled && !m_touchBlocked) {
+        m_webPage->recvMousePress(event->x(), event->y());
+    }
+}
+
+void DeclarativeWebContainer::mouseMoveEvent(QMouseEvent *event)
+{
+    if (m_webPage && m_enabled && !m_touchBlocked) {
+        m_webPage->recvMouseMove(event->x(), event->y());
+    }
+}
+
+void DeclarativeWebContainer::mouseReleaseEvent(QMouseEvent *event)
+{
+    if (m_webPage && m_enabled && !m_touchBlocked) {
+        m_webPage->recvMouseRelease(event->x(), event->y());
+    }
+}
+
+void DeclarativeWebContainer::wheelEvent(QWheelEvent *event)
+{
+    Q_UNUSED(event);
+    qDebug() << __PRETTY_FUNCTION__;
+}
+
 void DeclarativeWebContainer::classBegin()
 {
 }
